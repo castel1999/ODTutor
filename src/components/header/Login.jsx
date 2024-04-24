@@ -93,9 +93,9 @@ const Login = ({ onClose }) => {
             <input
               type="text"
               placeholder="Xác thực email"
-              className="flex-1 w-full px-4 py-2 border border-gray-300 rounded-lg mb-4 focus:outline-none"
+              className="flex-1 w-full px-4 py-2 border border-gray-300 rounded-l-lg mb-4 focus:outline-none"
             />
-            <button className="bg-blue px-4 py-2 border border-gray-300 rounded-lg mb-4 hover:opacity-90 text-white">
+            <button className="bg-blue px-4 py-2 border border-gray-300 rounded-r-lg mb-4 hover:opacity-90 text-white">
               Lấy mã
             </button>
           </div>

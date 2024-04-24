@@ -25,10 +25,10 @@ const Header = () => {
           <img
             src={ODTutorLogo}
             alt="ODTutorLogo"
-            className=" w-[180px] object-cover cursor-pointer self-center "
+            className=" w-[240px] object-cover cursor-pointer self-center "
           />
         </Link>
-        <div className="flex gap-4 ml-[7%]">
+        <div className="flex gap-4">
           <NavLink
             to="/"
             className={({ isActive }) =>
