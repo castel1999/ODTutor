@@ -3,7 +3,7 @@ import ODTutorLogo from "../../assets/ODTLogo.png";
 import { Link, NavLink } from "react-router-dom";
 import { CiHome, CiCamera, CiTrophy } from "react-icons/ci";
 import { FaFacebookF } from "react-icons/fa";
-import Auth from "./Auth";
+import Auth from "../auth/Auth"
 
 const Header = () => {
   const [modal, setModal] = useState(false);
