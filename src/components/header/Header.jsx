@@ -3,7 +3,7 @@ import ODTutorLogo from "../../assets/ODTLogo.png";
 import { Link, NavLink } from "react-router-dom";
 import { CiHome, CiCamera, CiTrophy } from "react-icons/ci";
 import { FaFacebookF } from "react-icons/fa";
-import Login from "./Login";
+import Auth from "./Auth";
 
 const Header = () => {
   const [modal, setModal] = useState(false);
@@ -78,7 +78,7 @@ const Header = () => {
       </header>
       <hr className="h-px w-full bg-gray-200 border-0 dark:bg-gray-200 " />
       <hr className="flex-grow border-t border-gray-300" />
-      {modal && <Login onClose={toggleModal} />}
+      {modal && <Auth onClose={toggleModal} />}
     </div>
   );
 };
