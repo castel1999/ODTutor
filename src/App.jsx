@@ -7,6 +7,7 @@ import ShowHeader from "./components/header/ShowHeader";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/reset" element={<ResetPasswordPage />} />
 
-        <Route path="*" element={<HomePage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
