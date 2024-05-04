@@ -3,21 +3,8 @@ import ODTutorLogo from "../../assets/ODTLogo.png";
 import { Link, NavLink } from "react-router-dom";
 import { CiHome, CiCamera, CiTrophy } from "react-icons/ci";
 import { FaFacebookF } from "react-icons/fa";
-import Auth from "../auth/Auth"
 
 const Header = () => {
-  const [modal, setModal] = useState(false);
-
-  const toggleModal = () => {
-    setModal(!modal);
-  };
-
-  useEffect(() => {
-    if (document) {
-      document.body.style.overflow = modal ? "hidden" : "auto";
-    }
-  }, [modal]);
-
   return (
     <div className="top-0 sticky bg-white">
       <header className="flex flex-row justify-between px-4 py-3 items-center ">
@@ -68,17 +55,16 @@ const Header = () => {
               <FaFacebookF className="bg-gray-200 rounded-full h-11 w-11 p-2 object-cover cursor-pointer self-center text-blue hover:text-white hover:bg-blue" />
             </div>
           </Link>
-          <div
-            onClick={toggleModal}
+          <Link
+            to="login"
             className="border rounded-3xl bg-gray-200 p-2 font-semibold cursor-pointer  hover:text-white hover:bg-blue"
           >
             Đăng nhập
-          </div>
+          </Link>
         </div>
       </header>
       <hr className="h-px w-full bg-gray-200 border-0 dark:bg-gray-200 " />
       <hr className="flex-grow border-t border-gray-300" />
-      {modal && <Auth onClose={toggleModal} />}
     </div>
   );
 };
