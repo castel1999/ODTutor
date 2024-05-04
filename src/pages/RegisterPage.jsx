@@ -129,17 +129,16 @@ const RegisterPage = () => {
                 className="border-2 border-black rounded-lg py-2 px-4 w-full outline-none focus:border-bgColor"
                 {...register("password")}
               />
-              <button
-                type="button"
+              <div
                 onClick={togglePasswordVisibility}
-                className="absolute inset-y-0 right-0 flex items-center px-4"
+                className="absolute inset-y-0 right-0 flex items-center px-4 cursor-pointer"
               >
                 {showPassword ? (
                   <IoEyeOutline className="size-6" />
                 ) : (
                   <IoEyeOffOutline className="size-6" />
                 )}
-              </button>
+              </div>
             </div>
             <div className="text-red-600">{errors.password?.message}</div>
           </div>
@@ -158,17 +157,16 @@ const RegisterPage = () => {
                 className="border-2 border-black rounded-lg py-2 px-4 w-full outline-none focus:border-bgColor"
                 {...register("confirmPassword")}
               />
-              <button
-                type="button"
+              <div
                 onClick={toggleConfirmPasswordVisibility}
-                className="absolute inset-y-0 right-0 flex items-center px-4"
+                className="absolute inset-y-0 right-0 flex items-center px-4 cursor-pointer"
               >
                 {showConfirmPassword ? (
                   <IoEyeOutline className="size-6" />
                 ) : (
                   <IoEyeOffOutline className="size-6" />
                 )}
-              </button>
+              </div>
             </div>
             <div className="text-red-600">
               {errors.confirmPassword?.message}
