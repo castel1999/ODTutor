@@ -40,7 +40,7 @@ const LoginPage = () => {
               Đăng ký ở đây
             </Link>
           </div>
-          <button className="flex justify-center items-center gap-2 border-2 border-black rounded-lg text-black py-2 px-4 mb-4 w-full hover:bg-bgColor hover:text-white">
+          <button className="transition ease-in-out delay-150 flex justify-center items-center gap-2 border-2 border-black rounded-lg text-black py-2 px-4 mb-4 w-full hover:bg-bgColor hover:text-white">
             <FcGoogle className="size-6" />
             Đăng nhập với Google
           </button>
@@ -89,7 +89,7 @@ const LoginPage = () => {
           <div className="flex justify-center">
             <button
               onSubmit={handleSubmit}
-              className="border-2 border-black rounded-lg text-black py-2 px-4 mb-4 shadow-md shadow-black hover:bg-bgColor hover:text-white"
+              className="transition ease-in-out delay-150 border-2 border-black rounded-lg text-black py-2 px-4 mb-4 shadow-md shadow-black hover:-translate-y-1 hover:scale-110 hover:bg-bgColor hover:text-white duration-300"
             >
               Đăng nhập
             </button>
