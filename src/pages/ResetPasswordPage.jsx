@@ -3,32 +3,33 @@ import logo from "../assets/logo.png";
 import loginBG from "../assets/loginBG.png";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
 
 const ResetPasswordPage = () => {
-  const [formData, setFormData] = useState({});
-  const [showPassword, setShowPassword] = useState(false);
+  // form validation rules
+  const validationSchema = Yup.object().shape({
+    email: Yup.string()
+      .email("Không đúng định dạng email")
+      .required("Vui lòng nhập email"),
+  });
+  const formOptions = { resolver: yupResolver(validationSchema) };
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.id]: e.target.value,
-    });
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm(formOptions);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(formData);
-  };
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
+  const onSubmit = (data) => console.log(data);
 
   return (
     <div className="flex justify-center items-center h-screen bg-bgColor">
       <div className="bg-white rounded-lg p-5">
-        <Link to='/login' >
-          <IoMdArrowRoundBack className="size-8 text-blue"/>
+        <Link to="/login">
+          <IoMdArrowRoundBack className="size-8 text-blue" />
         </Link>
         <form className=" w-[440px]">
           <img src={logo} alt="" className="mx-auto mb-4 w-20" />
@@ -44,15 +45,15 @@ const ResetPasswordPage = () => {
             </label>
             <input
               id="email"
-              type="email"
               className="border-2 border-black rounded-lg py-2 px-4 w-full outline-none focus:border-bgColor"
-              onChange={handleChange}
+              {...register("email")}
             />
+            <div className="text-red-600">{errors.email?.message}</div>
           </div>
 
           <div className="flex justify-center">
             <button
-              onSubmit={handleSubmit}
+              onClick={handleSubmit(onSubmit)}
               className="transition ease-in-out delay-150 border-2 border-black rounded-lg text-black py-2 px-4 mb-4 shadow-md shadow-black hover:-translate-y-1 hover:scale-110 hover:bg-bgColor hover:text-white duration-300"
             >
               Tiếp theo
