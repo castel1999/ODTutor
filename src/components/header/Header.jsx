@@ -6,7 +6,7 @@ import { FaFacebookF } from "react-icons/fa";
 
 const Header = () => {
   return (
-    <div className="top-0 sticky bg-white">
+    <div className=" bg-white">
       <header className="flex flex-row justify-between px-4 py-3 items-center ">
         <Link to="/">
           <img

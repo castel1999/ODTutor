@@ -16,7 +16,9 @@ const ShowHeader = ({ children }) => {
     }
   }, [location]);
 
-  return <div>{showHeader && children}</div>;
+  return (
+    <div className="sticky top-0 left-0 right-0">{showHeader && children}</div>
+  );
 };
 
 export default ShowHeader;
