@@ -4,10 +4,12 @@ import loginBG from "../assets/loginBG.png";
 import { Link } from "react-router-dom";
 import { IoEyeOutline } from "react-icons/io5";
 import { IoEyeOffOutline } from "react-icons/io5";
+import { IoMdArrowRoundBack } from "react-icons/io";
 import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import ErrorPopup from "../components/utils/ErrorPopup";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -40,9 +42,14 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-bgColor">
-      <div className="flex gap-5 bg-white rounded-lg p-3">
-        <form className="mt-10 w-[440px] pl-5">
+    <div className="flex justify-center items-center h-screen bg-theme">
+      <div className="flex gap-5 bg-white rounded-lg p-3 relative">
+        <form className="mt-6 w-[440px] pl-5">
+          <div className="w-fit">
+            <Link to="/">
+              <IoMdArrowRoundBack className="size-8 text-blue" />
+            </Link>
+          </div>
           <img src={logo} alt="" className="mx-auto mb-4 w-20" />
           <div className="text-center text-2xl font-bold mb-4 text-gray-800">
             Chào mừng trở lại
@@ -51,7 +58,7 @@ const LoginPage = () => {
             Bạn chưa có tài khoản?{" "}
             <Link
               to="/register"
-              className="underline hover:text-bgColor font-semibold"
+              className="underline hover:text-theme font-semibold"
             >
               Đăng ký ở đây
             </Link>
@@ -59,7 +66,7 @@ const LoginPage = () => {
           {/* Login with Google */}
           <button
             onClick={handleOnClick}
-            className="transition ease-in-out delay-150 flex justify-center items-center gap-2 border-2 border-black rounded-lg text-black py-2 px-4 mb-4 w-full hover:bg-bgColor hover:text-white"
+            className="transition ease-in-out delay-150 flex justify-center items-center gap-2 border-2 border-black rounded-lg text-black py-2 px-4 mb-4 w-full hover:bg-theme hover:text-white"
           >
             <FcGoogle className="size-6" />
             Đăng nhập với Google
@@ -70,7 +77,7 @@ const LoginPage = () => {
             <hr className="w-2/4 my-2 border-[1px] border-black" />
           </div>
           {/* Email */}
-          <div className="mb-4">
+          <div className="mb-4 relative">
             <label
               htmlFor="email"
               className="text-black text-sm font-bold mb-2"
@@ -79,13 +86,13 @@ const LoginPage = () => {
             </label>
             <input
               id="email"
-              className="border-2 border-black rounded-lg py-2 px-4 w-full outline-none focus:border-bgColor"
+              className="border-2 border-black rounded-lg py-2 px-4 w-full outline-none focus:border-theme"
               {...register("email")}
             />
-            <div className="text-red-600">{errors.email?.message}</div>
+            {errors.email && <ErrorPopup message={errors.email?.message} />}
           </div>
           {/* Password */}
-          <div className="mb-4">
+          <div className="mb-8 relative">
             <label
               htmlFor="password"
               className="text-black text-sm font-bold mb-2"
@@ -96,7 +103,7 @@ const LoginPage = () => {
               <input
                 id="password"
                 type={showPassword ? "text" : "password"}
-                className="border-2 border-black rounded-lg py-2 px-4 w-full outline-none focus:border-bgColor"
+                className="border-2 border-black rounded-lg py-2 px-4 w-full outline-none focus:border-theme"
                 {...register("password")}
               />
 
@@ -111,14 +118,16 @@ const LoginPage = () => {
                 )}
               </div>
             </div>
-            <div className="text-red-600">{errors.password?.message}</div>
+            {errors.password && (
+              <ErrorPopup message={errors.password?.message} />
+            )}
           </div>
           {/* Submit btn */}
           <div className="flex justify-center">
             <button
               onClick={handleSubmit(onSubmit)}
               type="submit"
-              className="transition ease-in-out delay-150 border-2 border-black rounded-lg text-black py-2 px-4 mb-4 shadow-md shadow-black hover:-translate-y-1 hover:scale-110 hover:bg-bgColor hover:text-white duration-300"
+              className="transition ease-in-out delay-150 border-2 border-black rounded-lg text-black py-2 px-4 mb-4 shadow-[rgba(0,0,0,1)_4px_5px_4px_0px] hover:-translate-x-[-6px] hover:-translate-y-[-6px] hover:shadow-none hover:bg-theme hover:text-white duration-300"
             >
               Đăng nhập
             </button>
@@ -126,7 +135,7 @@ const LoginPage = () => {
           <div className="text-center">
             <Link
               to="/reset"
-              className="underline hover:text-bgColor font-semibold"
+              className="underline hover:text-theme font-semibold"
             >
               Bạn quên mật khẩu?
             </Link>

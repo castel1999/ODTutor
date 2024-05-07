@@ -1,13 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/header/Header";
 import HomePage from "./pages/HomePage";
-import ReelPage from "./pages/ReelPage";
-import TrophyPage from "./pages/TrophyPage";
+import CoursePage from "./pages/CoursePage";
 import ShowHeader from "./components/header/ShowHeader";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import TutorListPage from "./pages/TutorListPage";
+import AboutPage from "./pages/AboutPage";
 
 function App() {
   return (
@@ -17,8 +18,9 @@ function App() {
       </ShowHeader>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/reels" element={<ReelPage />} />
-        <Route path="/trophies" element={<TrophyPage />} />
+        <Route path="/tutor-list" element={<TutorListPage />} />
+        <Route path="/course" element={<CoursePage />} />
+        <Route path="/about" element={<AboutPage />} />
 
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
