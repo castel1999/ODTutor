@@ -8,12 +8,14 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import Chat from "./components/chat/Chat";
 
 function App() {
   return (
     <BrowserRouter>
       <ShowHeader>
         <Header />
+        <Chat></Chat>
       </ShowHeader>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -26,6 +28,7 @@ function App() {
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      
     </BrowserRouter>
   );
 }
