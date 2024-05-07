@@ -1,66 +1,85 @@
 import React, { useEffect, useState } from "react";
-import ODTutorLogo from "../../assets/ODTLogo.png";
+import ODTutorLogo from "../../assets/logo.png";
+import Avatar from "../../assets/avatar.png";
 import { Link, NavLink } from "react-router-dom";
-import { CiHome, CiCamera, CiTrophy } from "react-icons/ci";
-import { FaFacebookF } from "react-icons/fa";
+import AuthenticationHeader from "./AuthenticationUserHeader/AuthenticationHeader";
 
 const Header = () => {
+  const user = {
+    username: "Luong Duyen Duc",
+    avatar: null,
+    noti: [
+      {
+        id: 1,
+        mess: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, ex.",
+      },
+      {
+        id: 2,
+        mess: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, recusandae. Natus qui corrupti velit repellendus modi veniam cupiditate tempora ut.",
+      },
+    ],
+    wallet: "200",
+    role: "user",
+  };
+
   return (
     <div className=" bg-white">
       <header className="flex flex-row justify-between px-4 py-3 items-center ">
-        <Link to="/">
-          <img
-            src={ODTutorLogo}
-            alt="ODTutorLogo"
-            className=" w-[240px] object-cover cursor-pointer self-center "
-          />
-        </Link>
         <div className="flex gap-4">
+          <Link to="/">
+            <img
+              src={ODTutorLogo}
+              alt="ODTutorLogo"
+              className=" size-16 object-cover cursor-pointer self-center "
+            />
+          </Link>
+
           <NavLink
-            to="/"
+            to="/tutor-list"
             className={({ isActive }) =>
               isActive
-                ? "bg-blue text-white rounded-full h-11 w-11 p-2 object-cover cursor-pointer self-center"
-                : "bg-gray-200 rounded-full h-11 w-11 p-2 object-cover cursor-pointer self-center hover:text-white hover:bg-blue"
+                ? "bg-theme text-white rounded-lg self-center p-3 font-semibold"
+                : "transition ease-in-out delay-150 rounded-lg p-3 cursor-pointer self-center font-semibold hover:text-white hover:bg-theme hover:-translate-y-0 hover:scale-110"
             }
           >
-            <CiHome className="size-7" />
+            Học với gia sư
           </NavLink>
+
           <NavLink
-            to="/reels"
+            to="/course"
             className={({ isActive }) =>
               isActive
-                ? "bg-blue text-white rounded-full h-11 w-11 p-2 object-cover cursor-pointer self-center"
-                : "bg-gray-200 rounded-full h-11 w-11 p-2 object-cover cursor-pointer self-center hover:text-white hover:bg-blue"
+                ? "bg-theme text-white rounded-lg self-center p-3 font-semibold"
+                : "transition ease-in-out delay-150 rounded-lg p-3 cursor-pointer self-center font-semibold hover:text-white hover:bg-theme hover:-translate-y-0 hover:scale-110"
             }
           >
-            <CiCamera className="size-7" />
+            Học theo lộ trình
           </NavLink>
+
           <NavLink
-            to="/trophies"
+            to="/about"
             className={({ isActive }) =>
               isActive
-                ? "bg-blue text-white rounded-full h-11 w-11 p-2 object-cover cursor-pointer self-center"
-                : "bg-gray-200 rounded-full h-11 w-11 p-2 object-cover cursor-pointer self-center hover:text-white hover:bg-blue"
+                ? "bg-theme text-white rounded-lg self-center p-3 font-semibold"
+                : "transition ease-in-out delay-150 rounded-lg p-3 cursor-pointer self-center font-semibold hover:text-white hover:bg-theme hover:-translate-y-0 hover:scale-110"
             }
           >
-            <div>
-              <CiTrophy className="size-7" />
-            </div>
+            Về chúng tôi
           </NavLink>
         </div>
         <div className="flex items-center gap-4 ">
-          <Link to="https://www.facebook.com" target="_blank">
-            <div>
-              <FaFacebookF className="bg-gray-200 rounded-full h-11 w-11 p-2 object-cover cursor-pointer self-center text-blue hover:text-white hover:bg-blue" />
-            </div>
-          </Link>
-          <Link
-            to="login"
-            className="border rounded-3xl bg-gray-200 p-2 font-semibold cursor-pointer  hover:text-white hover:bg-blue"
-          >
-            Đăng nhập
-          </Link>
+          {user?.role === "guest" ? (
+            <Link
+              to="login"
+              className="transition ease-in-out delay-150 border-2 border-black rounded-lg text-black py-2 px-4 mb-4 shadow-[rgba(0,0,0,1)_4px_5px_4px_0px] hover:-translate-x-[-6px] hover:-translate-y-[-6px] hover:shadow-none hover:bg-theme hover:text-white duration-300"
+            >
+              Đăng nhập
+            </Link>
+          ) : user?.role === "user" ? (
+            <AuthenticationHeader user={user} />
+          ) : (
+            ""
+          )}
         </div>
       </header>
       <hr className="h-px w-full bg-gray-200 border-0 dark:bg-gray-200 " />

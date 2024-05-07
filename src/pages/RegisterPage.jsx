@@ -4,10 +4,12 @@ import loginBG from "../assets/loginBG.png";
 import { Link } from "react-router-dom";
 import { IoEyeOutline } from "react-icons/io5";
 import { IoEyeOffOutline } from "react-icons/io5";
+import { IoMdArrowRoundBack } from "react-icons/io";
 import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import ErrorPopup from "../components/utils/ErrorPopup";
 
 const RegisterPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -54,9 +56,14 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-bgColor">
-      <div className="flex gap-5 bg-white rounded-lg p-3">
+    <div className="flex justify-center items-center h-screen bg-theme">
+      <div className="flex gap-5 bg-white rounded-lg p-3 relative">
         <form className=" w-[440px] pl-5">
+          <div className="w-fit">
+            <Link to="/">
+              <IoMdArrowRoundBack className="size-8 text-blue" />
+            </Link>
+          </div>
           <img src={logo} alt="" className="mx-auto mb-4 w-20" />
           <div className="text-center text-2xl font-bold mb-4 text-gray-800">
             Tạo tài khoản miễn phí
@@ -65,7 +72,7 @@ const RegisterPage = () => {
             Bạn đã có tài khoản?{" "}
             <Link
               to="/login"
-              className="underline hover:text-bgColor font-semibold"
+              className="underline hover:text-theme font-semibold"
             >
               Đăng nhập
             </Link>
@@ -73,7 +80,7 @@ const RegisterPage = () => {
           {/* Login with Google */}
           <button
             onClick={handleOnClick}
-            className="flex justify-center items-center gap-2 border-2 border-black rounded-lg text-black py-2 px-4 mb-4 w-full hover:bg-bgColor hover:text-white"
+            className="flex justify-center items-center gap-2 border-2 border-black rounded-lg text-black py-2 px-4 mb-4 w-full hover:bg-theme hover:text-white"
           >
             <FcGoogle className="size-6" />
             Tiếp tục với Google
@@ -84,7 +91,7 @@ const RegisterPage = () => {
             <hr className="w-2/4 my-2 border-[1px] border-black" />
           </div>
           {/* Username */}
-          <div className="mb-2">
+          <div className="mb-2 relative">
             <label
               htmlFor="uerName"
               className="text-black text-sm font-bold mb-2"
@@ -93,13 +100,15 @@ const RegisterPage = () => {
             </label>
             <input
               id="uerName"
-              className="border-2 border-black rounded-lg py-2 px-4 w-full outline-none focus:border-bgColor"
+              className="border-2 border-black rounded-lg py-2 px-4 w-full outline-none focus:border-theme"
               {...register("userName")}
             />
-            <div className="text-red-600">{errors.userName?.message}</div>
+            {errors.userName && (
+              <ErrorPopup message={errors.userName?.message} />
+            )}
           </div>
           {/* Email */}
-          <div className="mb-2">
+          <div className="mb-2 relative">
             <label
               htmlFor="email"
               className="text-black text-sm font-bold mb-2"
@@ -109,13 +118,13 @@ const RegisterPage = () => {
             <input
               id="email"
               type="email"
-              className="border-2 border-black rounded-lg py-2 px-4 w-full outline-none focus:border-bgColor"
+              className="border-2 border-black rounded-lg py-2 px-4 w-full outline-none focus:border-theme"
               {...register("email")}
             />
-            <div className="text-red-600">{errors.email?.message}</div>
+            {errors.email && <ErrorPopup message={errors.email?.message} />}
           </div>
           {/* Password */}
-          <div className="mb-2">
+          <div className="mb-2 relative">
             <label
               htmlFor="password"
               className="text-black text-sm font-bold mb-2"
@@ -126,7 +135,7 @@ const RegisterPage = () => {
               <input
                 id="password"
                 type={showPassword ? "text" : "password"}
-                className="border-2 border-black rounded-lg py-2 px-4 w-full outline-none focus:border-bgColor"
+                className="border-2 border-black rounded-lg py-2 px-4 w-full outline-none focus:border-theme"
                 {...register("password")}
               />
               <div
@@ -140,10 +149,12 @@ const RegisterPage = () => {
                 )}
               </div>
             </div>
-            <div className="text-red-600">{errors.password?.message}</div>
+            {errors.password && (
+              <ErrorPopup message={errors.password?.message} />
+            )}
           </div>
           {/* Confirm Password */}
-          <div className="mb-4">
+          <div className="mb-8 relative">
             <label
               htmlFor="confirmPassword"
               className="text-black text-sm font-bold mb-2"
@@ -154,7 +165,7 @@ const RegisterPage = () => {
               <input
                 id="confirmPassword"
                 type={showConfirmPassword ? "text" : "password"}
-                className="border-2 border-black rounded-lg py-2 px-4 w-full outline-none focus:border-bgColor"
+                className="border-2 border-black rounded-lg py-2 px-4 w-full outline-none focus:border-theme"
                 {...register("confirmPassword")}
               />
               <div
@@ -168,14 +179,14 @@ const RegisterPage = () => {
                 )}
               </div>
             </div>
-            <div className="text-red-600">
-              {errors.confirmPassword?.message}
-            </div>
+            {errors.confirmPassword && (
+              <ErrorPopup message={errors.confirmPassword?.message} />
+            )}
           </div>
           <div className="flex justify-center">
             <button
               onClick={handleSubmit(onSubmit)}
-              className="transition ease-in-out delay-150 border-2 border-black rounded-lg text-black py-2 px-4 mb-4 shadow-md shadow-black hover:-translate-y-1 hover:scale-110 hover:bg-bgColor hover:text-white duration-300"
+              className="transition ease-in-out delay-150 border-2 border-black rounded-lg text-black py-2 px-4 mb-4 shadow-[rgba(0,0,0,1)_4px_5px_4px_0px] hover:-translate-x-[-6px] hover:-translate-y-[-6px] hover:shadow-none hover:bg-theme hover:text-white duration-300"
             >
               Tạo tài khoản
             </button>
