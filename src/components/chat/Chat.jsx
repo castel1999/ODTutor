@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import chatIcon from "../../assets/chat.svg";
 import hideIcon from "../../assets/delete.svg";
 import dot from "../../assets/dot.svg";
+import send from "../../assets/send.svg";
+import gallery from "../../assets/gallery.svg";
 import defaultAvatar from "../../assets/default-avatar.jpg";
 
 const Chat = () => {
@@ -23,7 +25,7 @@ const Chat = () => {
           </div>
         </div>
       ) : (
-        <div className="h-[500px] w-[800px] shadow-lg flex flex-col rounded-lg border-solid border-2 border-black">
+        <div className="h-[500px] w-[850px] shadow-lg flex flex-col rounded-lg border-solid border-2 border-black">
           <div className="flex flex-row w-full h-[10%] justify-between px-[10px] pt-[9px] pb-[5px] bg-[#f5f5f5] rounded-t-lg ">
             <div className="flex flex-row items-center justify-center gap-2 ">
               <img className="h-6 w-6 " src={chatIcon} />
@@ -49,9 +51,9 @@ const Chat = () => {
               </div>
             </div>
           </div>
-          <div className="h-full w-full flex flex-row">
-            <div className="flex flex-col h-full w-[35%]  py-1 border-t-2 border-r-2 border-solid border-black">
-              <div className="h-fit w-full flex flex-row px-2 py-1 gap-2 items-center">
+          <div className="h-[90%] w-full flex flex-row bg-white rounded-lg">
+            <div className="flex flex-col h-full w-[35%] p-1 border-t-2 border-r-2  border-solid border-black overflow-y-auto">
+              <div className="h-fit w-full flex flex-row px-2 py-1 gap-2 items-center hover:bg-gray-200 active:bg-gray-100 rounded-lg">
                 <img className="h-10 w-10 rounded-full" src={defaultAvatar} />
                 <div className="flex flex-col w-full">
                   <div className=" w-full flex flex-row justify-between">
@@ -66,7 +68,127 @@ const Chat = () => {
                   </div>
                 </div>
               </div>
-              <div className="h-fit w-full flex flex-row px-2 py-1 gap-2 items-center bg-[#E2EAFD]">
+              <div className="h-fit w-full flex flex-row px-2 py-1 gap-2 items-center bg-[#E2EAFD] rounded-lg">
+                <img className="h-10 w-10 rounded-full" src={defaultAvatar} />
+                <div className="flex flex-col w-full">
+                  <div className=" w-full flex flex-row justify-between">
+                    <div className="text-[16px]">Văn An</div>
+                    <div className="text-[14px]">3d</div>
+                  </div>
+                  <div className="w-full flex flex-row justify-between">
+                    <div className="text-[14px] truncate w-[180px]">
+                      ajaaaaaaaaaaaaaaaaaaaaaaaaahasldfjkaaskl
+                    </div>
+                    {/* <img src={dot} /> */}
+                  </div>
+                </div>
+              </div>
+              <div className="h-fit w-full flex flex-row px-2 py-1 gap-2 items-center hover:bg-gray-200 active:bg-gray-100 rounded-lg">
+                <img className="h-10 w-10 rounded-full" src={defaultAvatar} />
+                <div className="flex flex-col w-full">
+                  <div className=" w-full flex flex-row justify-between">
+                    <div className="text-[16px]">Văn An</div>
+                    <div className="text-[14px]">3d</div>
+                  </div>
+                  <div className="w-full flex flex-row justify-between">
+                    <div className="text-[14px] truncate w-[180px]">
+                      ajaaaaaaaaaaaaaaaaaaaaaaaaahasldfjkaaskl
+                    </div>
+                    <img src={dot} />
+                  </div>
+                </div>
+              </div>
+              <div className="h-fit w-full flex flex-row px-2 py-1 gap-2 items-center bg-[#E2EAFD] rounded-lg">
+                <img className="h-10 w-10 rounded-full" src={defaultAvatar} />
+                <div className="flex flex-col w-full">
+                  <div className=" w-full flex flex-row justify-between">
+                    <div className="text-[16px]">Văn An</div>
+                    <div className="text-[14px]">3d</div>
+                  </div>
+                  <div className="w-full flex flex-row justify-between">
+                    <div className="text-[14px] truncate w-[180px]">
+                      ajaaaaaaaaaaaaaaaaaaaaaaaaahasldfjkaaskl
+                    </div>
+                    {/* <img src={dot} /> */}
+                  </div>
+                </div>
+              </div>
+              <div className="h-fit w-full flex flex-row px-2 py-1 gap-2 items-center hover:bg-gray-200 active:bg-gray-100 rounded-lg">
+                <img className="h-10 w-10 rounded-full" src={defaultAvatar} />
+                <div className="flex flex-col w-full">
+                  <div className=" w-full flex flex-row justify-between">
+                    <div className="text-[16px]">Văn An</div>
+                    <div className="text-[14px]">3d</div>
+                  </div>
+                  <div className="w-full flex flex-row justify-between">
+                    <div className="text-[14px] truncate w-[180px]">
+                      ajaaaaaaaaaaaaaaaaaaaaaaaaahasldfjkaaskl
+                    </div>
+                    <img src={dot} />
+                  </div>
+                </div>
+              </div>
+              <div className="h-fit w-full flex flex-row px-2 py-1 gap-2 items-center bg-[#E2EAFD] rounded-lg">
+                <img className="h-10 w-10 rounded-full" src={defaultAvatar} />
+                <div className="flex flex-col w-full">
+                  <div className=" w-full flex flex-row justify-between">
+                    <div className="text-[16px]">Văn An</div>
+                    <div className="text-[14px]">3d</div>
+                  </div>
+                  <div className="w-full flex flex-row justify-between">
+                    <div className="text-[14px] truncate w-[180px]">
+                      ajaaaaaaaaaaaaaaaaaaaaaaaaahasldfjkaaskl
+                    </div>
+                    {/* <img src={dot} /> */}
+                  </div>
+                </div>
+              </div>
+              <div className="h-fit w-full flex flex-row px-2 py-1 gap-2 items-center hover:bg-gray-200 active:bg-gray-100 rounded-lg">
+                <img className="h-10 w-10 rounded-full" src={defaultAvatar} />
+                <div className="flex flex-col w-full">
+                  <div className=" w-full flex flex-row justify-between">
+                    <div className="text-[16px]">Văn An</div>
+                    <div className="text-[14px]">3d</div>
+                  </div>
+                  <div className="w-full flex flex-row justify-between">
+                    <div className="text-[14px] truncate w-[180px]">
+                      ajaaaaaaaaaaaaaaaaaaaaaaaaahasldfjkaaskl
+                    </div>
+                    <img src={dot} />
+                  </div>
+                </div>
+              </div>
+              <div className="h-fit w-full flex flex-row px-2 py-1 gap-2 items-center bg-[#E2EAFD] rounded-lg">
+                <img className="h-10 w-10 rounded-full" src={defaultAvatar} />
+                <div className="flex flex-col w-full">
+                  <div className=" w-full flex flex-row justify-between">
+                    <div className="text-[16px]">Văn An</div>
+                    <div className="text-[14px]">3d</div>
+                  </div>
+                  <div className="w-full flex flex-row justify-between">
+                    <div className="text-[14px] truncate w-[180px]">
+                      ajaaaaaaaaaaaaaaaaaaaaaaaaahasldfjkaaskl
+                    </div>
+                    {/* <img src={dot} /> */}
+                  </div>
+                </div>
+              </div>
+              <div className="h-fit w-full flex flex-row px-2 py-1 gap-2 items-center hover:bg-gray-200 active:bg-gray-100 rounded-lg">
+                <img className="h-10 w-10 rounded-full" src={defaultAvatar} />
+                <div className="flex flex-col w-full">
+                  <div className=" w-full flex flex-row justify-between">
+                    <div className="text-[16px]">Văn An</div>
+                    <div className="text-[14px]">3d</div>
+                  </div>
+                  <div className="w-full flex flex-row justify-between">
+                    <div className="text-[14px] truncate w-[180px]">
+                      ajaaaaaaaaaaaaaaaaaaaaaaaaahasldfjkaaskl
+                    </div>
+                    <img src={dot} />
+                  </div>
+                </div>
+              </div>
+              <div className="h-fit w-full flex flex-row px-2 py-1 gap-2 items-center bg-[#E2EAFD] rounded-lg">
                 <img className="h-10 w-10 rounded-full" src={defaultAvatar} />
                 <div className="flex flex-col w-full">
                   <div className=" w-full flex flex-row justify-between">
@@ -83,8 +205,91 @@ const Chat = () => {
               </div>
             </div>
             <div className="w-[65%] relative flex flex-col border-t-2 border-solid border-black">
-              <div className="">
+              <div className="h-[90%] w-full px-4 py-6 flex flex-col-reverse gap-2 overflow-y-auto">
+                <div className="flex flex-row items-center gap-[12px]">
+                  <img className="h-9 w-9 rounded-full" src={defaultAvatar} />
+                  <div className="max-w-[47%] text-[18px] px-[16px] py-[8px] bg-[#E2EAFD] rounded-t-xl rounded-ee-xl">
+                    as;ldkfjas;dlfkjasd;lfaaaa
+                  </div>
+                </div>
 
+                <div className="flex flex-row-reverse items-center gap-[12px]">
+                  <div className="h-fit max-w-[47%] text-[18px] px-[16px] py-[8px] bg-[#6B48F2] text-white rounded-t-xl rounded-es-xl">
+                    as;ldkfjas;dlfkjasdaaaaaaa
+                  </div>
+                </div>
+                <div className="flex flex-row items-center gap-[12px]">
+                  <img className="h-9 w-9 rounded-full" src={defaultAvatar} />
+                  <div className="max-w-[47%] text-[18px] px-[16px] py-[8px] bg-[#E2EAFD] rounded-t-xl rounded-ee-xl">
+                    as;ldkfjas;dlfkjasd;lf
+                  </div>
+                </div>
+
+                <div className="flex flex-row-reverse items-center gap-[12px]">
+                  <div className="h-fit max-w-[47%] text-[18px] px-[16px] py-[8px] bg-[#6B48F2] text-white rounded-t-xl rounded-es-xl">
+                    as;ldkfjas;dlfkjasd;lfkajsd
+                  </div>
+                </div>
+                <div className="flex flex-row items-center gap-[12px]">
+                  <img className="h-9 w-9 rounded-full" src={defaultAvatar} />
+                  <div className="max-w-[47%] text-[18px] px-[16px] py-[8px] bg-[#E2EAFD] rounded-t-xl rounded-ee-xl">
+                    as;ldkfjas;dlfkjasd;lf
+                  </div>
+                </div>
+
+                <div className="flex flex-row-reverse items-center gap-[12px]">
+                  <div className="h-fit max-w-[47%] text-[18px] px-[16px] py-[8px] bg-[#6B48F2] text-white rounded-t-xl rounded-es-xl">
+                    as;ldkfjas;dlfkjasd;lfkajsd
+                  </div>
+                </div>
+                <div className="flex flex-row items-center gap-[12px]">
+                  <img className="h-9 w-9 rounded-full" src={defaultAvatar} />
+                  <div className="max-w-[47%] text-[18px] px-[16px] py-[8px] bg-[#E2EAFD] rounded-t-xl rounded-ee-xl">
+                    as;ldkfjas;dlfkjasd;lf
+                  </div>
+                </div>
+
+                <div className="flex flex-row-reverse items-center gap-[12px]">
+                  <div className="h-fit max-w-[47%] text-[18px] px-[16px] py-[8px] bg-[#6B48F2] text-white rounded-t-xl rounded-es-xl">
+                    as;ldkfjas;dlfkjasd;lfkajsd
+                  </div>
+                </div>
+                <div className="flex flex-row items-center gap-[12px]">
+                  <img className="h-9 w-9 rounded-full" src={defaultAvatar} />
+                  <div className="max-w-[47%] text-[18px] px-[16px] py-[8px] bg-[#E2EAFD] rounded-t-xl rounded-ee-xl">
+                    as;ldkfjas;dlfkjasd;lf
+                  </div>
+                </div>
+
+                <div className="flex flex-row-reverse items-center gap-[12px]">
+                  <div className="h-fit max-w-[47%] text-[18px] px-[16px] py-[8px] bg-[#6B48F2] text-white rounded-t-xl rounded-es-xl">
+                    as;ldkfjas;dlfkjasd;lfkajsd
+                  </div>
+                </div>
+                <div className="flex flex-row items-center gap-[12px]">
+                  <img className="h-9 w-9 rounded-full" src={defaultAvatar} />
+                  <div className="max-w-[47%] text-[18px] px-[16px] py-[8px] bg-[#E2EAFD] rounded-t-xl rounded-ee-xl">
+                    as;ldkfjas;dlfkjasd;lf
+                  </div>
+                </div>
+
+                <div className="flex flex-row-reverse items-center gap-[12px]">
+                  <div className="h-fit max-w-[47%] text-[18px] px-[16px] py-[8px] bg-[#6B48F2] text-white rounded-t-xl rounded-es-xl">
+                    as;ldkfjas;dlfkjasd;lfkajsd
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-row h-1/10 w-full px-3 py-2 border-t-2 border-black gap-3 ">
+                <label>
+                  <img src={gallery} />
+                  <input type="file" hidden />
+                </label>
+                <input
+                  className="w-4/5 px-3 py-2 rounded-lg bg-gray-200 outline-none"
+                  placeholder="Hãy viết gì đó"
+                  type="text"
+                />
+                <img src={send} />
               </div>
             </div>
           </div>
