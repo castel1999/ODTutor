@@ -3,8 +3,20 @@ import ODTutorLogo from "../../assets/logo.png";
 import Avatar from "../../assets/avatar.png";
 import { Link, NavLink } from "react-router-dom";
 import AuthenticationHeader from "./AuthenticationUserHeader/AuthenticationHeader";
+import { useQuery } from "react-query";
+import * as UserApi from "../../api/UserApi";
 
 const Header = () => {
+  const { data, isLoading, error } = useQuery("myData", UserApi.signIn);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
   const user = {
     username: "Luong Duyen Duc",
     avatar: null,
@@ -68,15 +80,15 @@ const Header = () => {
           </NavLink>
         </div>
         <div className="flex items-center gap-4 ">
-          {user?.role === "guest" ? (
+          {data?.role === "guest" ? (
             <Link
               to="login"
               className="transition ease-in-out delay-150 border-2 border-black rounded-lg text-black py-2 px-4 mb-4 shadow-[rgba(0,0,0,1)_4px_5px_4px_0px] hover:-translate-x-[-6px] hover:-translate-y-[-6px] hover:shadow-none hover:bg-theme hover:text-white duration-300"
             >
               Đăng nhập
             </Link>
-          ) : user?.role === "user" ? (
-            <AuthenticationHeader user={user} />
+          ) : data?.role === "user" ? (
+            <AuthenticationHeader data={data} />
           ) : (
             ""
           )}

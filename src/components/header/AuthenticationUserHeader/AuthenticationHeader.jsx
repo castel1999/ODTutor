@@ -6,11 +6,15 @@ import notify from "../../../assets/notify.png";
 import { CiHeart } from "react-icons/ci";
 import { CiWallet } from "react-icons/ci";
 
-const AuthenticationHeader = ({ user }) => {
-  const [img, setImg] = useState(user?.avatar);
+const AuthenticationHeader = ({ data }) => {
+  const [img, setImg] = useState(data?.avatar);
   const [openProfile, setOpenProfile] = useState(false);
-  const menus = ["Trang cá Nhân", "Giáo viên Yêu thích", "Đăng xuất"];
-  const noti = user.noti.map((item) => item);
+  const menus = [
+    { id: 1, text: "Trang cá Nhân", route: "/account/profile" },
+    { id: 2, text: "Giáo viên Yêu thích", route: "/favorite" },
+    { id: 3, text: "Đăng xuất", route: "/login" },
+  ];
+  const noti = data.noti.map((item) => item);
 
   const [openNoti, setOpenNoti] = useState(false);
 
@@ -47,7 +51,7 @@ const AuthenticationHeader = ({ user }) => {
           <img
             ref={profileImgRef}
             onClick={() => setOpenProfile(!openProfile)}
-            src={img ? img.Avatar : ava}
+            src={img ? img : ava}
             alt="Avatar"
             className="object-cover size-8 rounded-md cursor-pointer"
           />
@@ -60,13 +64,14 @@ const AuthenticationHeader = ({ user }) => {
             <ul>
               {menus &&
                 menus?.map((menu) => (
-                  <li
+                  <Link
+                    to={menu.route}
                     onClick={() => setOpenProfile(false)}
-                    className="p-2 text-lg cursor-pointer rounded-md hover:bg-theme hover:text-white"
-                    key={menu}
+                    className="p-2 text-lg cursor-pointer rounded-md hover:bg-theme hover:text-white block"
+                    key={menu.id}
                   >
-                    {menu}
-                  </li>
+                    {menu.text}
+                  </Link>
                 ))}
             </ul>
           </div>
@@ -76,7 +81,7 @@ const AuthenticationHeader = ({ user }) => {
       {/* notifi */}
       <div className="flex flex-col items-center ">
         <div className="relative">
-        <img
+          <img
             ref={notiImgRef}
             onClick={() => setOpenNoti(!openNoti)}
             src={notify}
@@ -105,7 +110,7 @@ const AuthenticationHeader = ({ user }) => {
         )}
       </div>
 
-      <Link to="/">
+      <Link to="/favorite">
         <CiHeart className="size-6 object-cover self-center hover:text-theme cursor-pointer" />
       </Link>
 

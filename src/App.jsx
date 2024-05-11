@@ -10,6 +10,11 @@ import NotFoundPage from "./pages/NotFoundPage";
 import Chat from "./components/chat/Chat";
 import TutorListPage from "./pages/TutorListPage";
 import AboutPage from "./pages/AboutPage";
+import UserAccount from "./components/userAccountLayout/UserAccount";
+import ProfilePage from "./pages/userAccount/ProfilePage";
+import WalletPage from "./pages/userAccount/WalletPage";
+import FavotitePage from "./pages/FavotitePage";
+import UpgradeAccoutPage from "./pages/userAccount/UpgradeAccoutPage";
 
 function App() {
   return (
@@ -19,7 +24,7 @@ function App() {
         <Chat></Chat>
       </ShowHeader>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" index element={<HomePage />} />
         <Route path="/tutor-list" element={<TutorListPage />} />
         <Route path="/course" element={<CoursePage />} />
         <Route path="/about" element={<AboutPage />} />
@@ -28,9 +33,17 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/reset" element={<ResetPasswordPage />} />
 
+        <Route path="/favorite" element={<FavotitePage />} />
+
+
+        <Route path="/account" element={<UserAccount />}>
+          <Route path="profile" element={<ProfilePage />} />
+          <Route path="wallet" element={<WalletPage />} />
+          <Route path="upgrade" element={<UpgradeAccoutPage />} />
+        </Route>
+
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      
     </BrowserRouter>
   );
 }
