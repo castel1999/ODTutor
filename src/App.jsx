@@ -21,7 +21,7 @@ function App() {
     <BrowserRouter>
       <ShowHeader>
         <Header />
-        <Chat></Chat>
+        <Chat/>
       </ShowHeader>
       <Routes>
         <Route path="/" index element={<HomePage />} />
